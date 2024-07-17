@@ -1,0 +1,8 @@
+Logging profiles:
+
+Trace
+Debug
+Info
+Warning
+Error
+Off

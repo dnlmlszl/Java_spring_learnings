@@ -35,7 +35,9 @@ public class CourseController {
 	private List<Course> courses = new ArrayList<>(Arrays.asList(
 	        new Course(1, "AWS", "LMD"),
 	        new Course(2, "DevOps", "LMD"),
-	        new Course(3, "Spring Boot", "John Doe")
+	        new Course(3, "Spring Boot", "John Doe"),
+	        new Course(4, "Learn React", "LMD"),
+	        new Course(5, "Learn GCP", "John Doe")
 	    ));
 	
 	@GetMapping
