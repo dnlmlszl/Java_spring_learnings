@@ -32,7 +32,7 @@ This project is a simple demonstration of how to use Spring Boot to build a REST
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/spring-boot-rest-api-example.git
+    git clone https://github.com/dnlmlszl/Java_spring_learnings/tree/main/learning-spring-boot.git
     cd spring-boot-rest-api-example
     ```
 
