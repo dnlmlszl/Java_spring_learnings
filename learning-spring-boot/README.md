@@ -174,3 +174,14 @@ spring.profiles.active=prod
 ```
 
 You can add different logger settings with different properties files. Check the settings in `application-dev.properties` and `application-prod.properties` in the src/main/resources folder.
+
+### pom.xml
+
+Adding `spring-boot-devtools` to the `pom.xml` enables users to use the application without restarting the console every time a file is changed.
+
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+</dependency>
+```
