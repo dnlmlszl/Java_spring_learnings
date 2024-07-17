@@ -185,3 +185,102 @@ Adding `spring-boot-devtools` to the `pom.xml` enables users to use the applicat
 	<artifactId>spring-boot-devtools</artifactId>
 </dependency>
 ```
+
+### Currency Configuration
+
+This service retrieves currency service configuration details. 
+
+Add the following properties to your `application.properties` file:
+
+```properties
+spring.application.name=learning-spring-boot
+logging.level.org.springframework=debug
+spring.profiles.active=prod
+
+currency-service.url=http://default.com.lmdlearning.learning_spring_boot
+currency-service.username=defaultusername
+currency-service.key=defaultkey
+```
+
+Create a service class to hold the configuration:
+
+```java
+package com.lmdlearning.learning_spring_boot;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@ConfigurationProperties(prefix="currency-service")
+@Component
+public class CurrencyServiceConfiguration {
+    
+    private String url;
+    private String username;
+    private String key;
+    
+    // Getters and Setters
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getKey() {
+        return key;
+    }
+    public void setKey(String key) {
+        this.key = key;
+    }
+}
+```
+Create a controller to expose the configuration via an endpoint:
+
+```
+package com.lmdlearning.learning_spring_boot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/currency-configuration")
+public class CurrencyConfigurationController {
+    
+    @Autowired
+    private CurrencyServiceConfiguration configuration;
+    
+    @GetMapping
+    public CurrencyServiceConfiguration retrieveAllCurrencies() {
+        return configuration;
+    }
+}
+
+```
+
+Update `application.properties`:
+
+```sh
+
+currency-service.url=http://default.lmdlearning.com
+currency-service.username=defaultusername
+currency-service.key=defaultkey
+
+```
+
+This setup allows you to access the currency service configuration details by sending a GET request to `/currency-configuration`.
+
+```json
+{
+"url": "http://default.lmdlearning.com",
+"username": "defaultusername",
+"key": "defaultkey"
+}
+
+```
