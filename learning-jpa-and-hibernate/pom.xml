@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lmdlearning</groupId>
-	<artifactId>learning-spring-boot</artifactId>
+	<artifactId>learning-jpa-and-hibernate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>learning-spring-boot</name>
-	<description>Demo project for Spring Boot</description>
+	<name>learning-jpa-and-hibernate</name>
+	<description>Demo project for Spring Boot with JPA and Hibernate</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -32,12 +32,15 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
 		<dependency>
@@ -45,6 +48,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

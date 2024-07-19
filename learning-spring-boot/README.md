@@ -239,7 +239,7 @@ public class CurrencyServiceConfiguration {
     }
 }
 ```
-Create a controller to expose the configuration via an endpoint:
+Create a controller to expose the configuration via an end point:
 
 ```
 package com.lmdlearning.learning_spring_boot;
@@ -284,3 +284,5 @@ This setup allows you to access the currency service configuration details by se
 }
 
 ```
+
+You can change the values for the different profile configurations. 
