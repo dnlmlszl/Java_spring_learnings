@@ -6,8 +6,10 @@ import com.lmdlearning.learning_jpa_and_hibernate.course.Course;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class CourseJPARepository {
 	
 	@PersistenceContext
