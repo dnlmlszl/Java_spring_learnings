@@ -1,17 +1,33 @@
 package com.lmdlearning.first_spring_boot_webapp.login;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes("username")
-public class LoginController {
+public class WelcomeController {	
 	
-	//private Logger logger = LoggerFactory.getLogger(getClass());
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String goToWelcomePage(ModelMap model) {
+		
+		model.put("username", getLoggedInUsername());		
+		
+		return "welcome";
+	}
+	
+	private String getLoggedInUsername() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		return authentication.getName();
+	}
+	
+	/*
+	 private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	
 	private AuthenticationService authenticationService;
@@ -21,26 +37,7 @@ public class LoginController {
 		super();
 		this.authenticationService = authenticationService;
 	}
-
-	// http://localhost:8080/login?name=LMD
-	//@RequestMapping("/login")
-	// public String login(@RequestParam String name, ModelMap model) {
-		
-		// model.put("name", name);
-		
-		// logger.debug("Request param is {}", name);
-		// logger.warn("Print this message at warn level");
-		// logger.info("Print this message at info level");
-		
-		//System.out.println("Request param is: " + name);
-		// }
-	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String goToLoginPage() {
-		
-		return "login";
-	}
-	
+	  
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String goToWelcomePage(@RequestParam String username, @RequestParam String password, ModelMap model) {
 		
@@ -56,6 +53,6 @@ public class LoginController {
 		
 		model.put("errorMessage", "Invalid credentials! Please, try again.");
 		return "login";
-	}
+	}*/
 
 }

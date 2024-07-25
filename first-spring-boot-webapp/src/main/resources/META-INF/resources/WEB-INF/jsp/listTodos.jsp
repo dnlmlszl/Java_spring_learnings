@@ -1,49 +1,10 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>	
 
-<html>
-    <head>
-        <title>List Todos Page</title>
-        
-         <link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
-         
-         
-       <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-            border-radius: 10px 10px 0 0;
-        }
-        .table thead th {
-            border: none;
-            color: #007bff;
-        }
-        .table tbody tr {
-            transition: background-color 0.3s;
-        }
-        .table tbody tr:hover {
-            background-color: #e9ecef;
-        }
-    </style>
-	   
-		
-		
-	</head>
-    <body>
-    	<main class="container mt-5">
+    	<main class="container">
     		<div class="card">
-    			<div class="card-header">
-		        	<h3 class="mb-4">List of Your Todos, ${username}:</h3>
+    			<div class="card-header bg-primary">
+		        	<h3 class="text-white">Your Personal Todos:</h3>
 		        </div>
 		        <div class="card-body">
 			        <div class="table-responsive">     
@@ -86,9 +47,4 @@
 		        </div>
 	        </div> 
         </main>
-        <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-		<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
-		
-		
-    </body>
-</html>
+        <%@ include file="common/footer.jspf" %>
