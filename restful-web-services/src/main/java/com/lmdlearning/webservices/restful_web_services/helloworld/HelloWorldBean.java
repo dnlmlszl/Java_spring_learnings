@@ -31,7 +31,4 @@ public class HelloWorldBean {
 	public String toString() {
 		return "HelloWorldBean [message=" + message + ", anotherMessage=" + anotherMessage + "]";
 	}
-
-
-
 }
